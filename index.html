@@ -11,16 +11,13 @@
 
 <button onclick="upgradeClick()">Upgrade Click (Cost: 10)</button>
 <button onclick="autoClicker()">Auto Clicker (Cost: 50)</button>
-<button onclick="upgradeAutoClicker()">Upgrade Auto Clicker (Cost: 100)</button>
 
 <p id="score">Score: 0</p>
 <p id="clickValue">Cookies per click: 1</p>
-<p id="autoClickValue">Cookies per auto click: 1</p>
 
 <script>
 var score = 0;
 var clickValue = 1;
-var autoClickValue = 1;
 var autoClickerInterval;
 
 function clickCookie() {
@@ -47,22 +44,11 @@ function autoClicker() {
       clearInterval(autoClickerInterval);
     }
     autoClickerInterval = setInterval(function() {
-      score += autoClickValue;
+      score += 1;
       document.getElementById("score").innerHTML = "Score: " + score;
     }, 1000);
   } else {
     alert("Not enough cookies for auto clicker!");
-  }
-}
-
-function upgradeAutoClicker() {
-  if (score >= 100) {
-    score -= 100;
-    autoClickValue *= 2;
-    document.getElementById("score").innerHTML = "Score: " + score;
-    document.getElementById("autoClickValue").innerHTML = "Cookies per auto click: " + autoClickValue;
-  } else {
-    alert("Not enough cookies for upgrade!");
   }
 }
 </script>
