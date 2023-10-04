@@ -26,6 +26,7 @@ var prestigePoints = 0;
 var clickValue = 1;
 var autoClickValue = 1;
 var autoClickerInterval;
+var prestigeThreshold = 1000;
 
 function clickCookie() {
   score += clickValue;
@@ -77,7 +78,10 @@ function upgradeAutoClicker() {
 }
 
 function updatePrestigePoints() {
-   prestigePoints = Math.floor(totalCookies / 10);
+   if (totalCookies >= prestigeThreshold) {
+       prestigePoints += 1;
+       prestigeThreshold *= 10;
+   }
    document.getElementById("prestigePoints").innerHTML = "Prestige Points: " + prestigePoints; 
 }
 </script>
