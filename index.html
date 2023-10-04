@@ -12,6 +12,7 @@
 <button onclick="upgradeClick()">Upgrade Click (Cost: 10)</button>
 <button onclick="autoClicker()">Auto Clicker (Cost: 50)</button>
 <button onclick="upgradeAutoClicker()">Upgrade Auto Clicker (Cost: 100)</button>
+<button onclick="restartGame()">Restart Game</button>
 
 <p id="score">Score: 0</p>
 <p id="totalCookies">Total Cookies: 0</p>
@@ -83,6 +84,21 @@ function updatePrestigePoints() {
        prestigeThreshold *= 10;
    }
    document.getElementById("prestigePoints").innerHTML = "Prestige Points: " + prestigePoints; 
+}
+
+function restartGame() {
+   if (autoClickerInterval) {
+      clearInterval(autoClickerInterval);
+   }
+   score = prestigePoints * 2; // Apply boost
+   totalCookies = prestigePoints * 2; // Apply boost
+   clickValue = prestigePoints * 2 || 1; // Apply boost, minimum is still one
+   autoClickValue = prestigePoints * 2 || 1; // Apply boost, minimum is still one
+   prestigeThreshold = Math.pow(10, prestigePoints+3); // Reset threshold
+   document.getElementById("score").innerHTML = "Score: " + score; 
+   document.getElementById("totalCookies").innerHTML = "Total Cookies: " + totalCookies; 
+   document.getElementById("clickValue").innerHTML = "Cookies per click: " + clickValue; 
+   document.getElementById("autoClickValue").innerHTML = "Cookies per auto click: " + autoClickValue; 
 }
 </script>
 
