@@ -5,20 +5,37 @@
 <h2>Cookie Clicker Game</h2>
 <p>Click the cookie to increase your score!</p>
 
-<button onclick="clickCookie()" style="display: block; margin-bottom: 10px;">
+<button class="game-button" onclick="clickCookie()">
   <img src="https://i.imgur.com/a3HjNKr.png" alt="Cookie" width="50" height="50">
 </button>
 
-<button onclick="upgradeClick()" style="display: block; margin-bottom: 10px;">Upgrade Click (Cost: 10)</button>
-<button onclick="autoClicker()" style="display: block; margin-bottom: 10px;">Auto Clicker (Cost: 50)</button>
-<button onclick="upgradeAutoClicker()" style="display: block; margin-bottom: 10px;">Upgrade Auto Clicker (Cost: 100)</button>
-<button onclick="restartGame()" style="display: block; margin-bottom: 10px;">Restart Game</button>
+<button class="game-button" onclick="upgradeClick()">Upgrade Click (Cost: 10)</button>
+<button class="game-button" onclick="autoClicker()">Auto Clicker (Cost: 50)</button>
+<button class="game-button" onclick="upgradeAutoClicker()">Upgrade Auto Clicker (Cost: 100)</button>
+<button class="game-button" onclick="restartGame()">Restart Game</button>
 
 <p id="score">Score: 0</p>
-<p id="totalCookies">Total Cookies: 0</p>
+<!-- <p id="totalCookies">Total Cookies: 0</p> --> <!-- Commented out -->
 <p id="prestigePoints">Prestige Points: 0</p>
 <p id="clickValue">Cookies per click: 1</p>
 <p id="autoClickValue">Cookies per auto click: 1</p>
+
+<style>
+.game-button {
+  display: block;
+  margin-bottom: 10px;
+  padding: 10px;
+  color: black; /* Black text */
+  background-color: white; /* White background */
+  border: 1px solid black; /* Black border */
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.game-button:hover {
+  background-color: #ddd; /* Light grey on hover */
+}
+</style>
 
 <script>
 var score = 0;
@@ -33,7 +50,7 @@ function clickCookie() {
   score += clickValue;
   totalCookies += clickValue;
   document.getElementById("score").innerHTML = "Score: " + score;
-  document.getElementById("totalCookies").innerHTML = "Total Cookies: " + totalCookies;
+//   document.getElementById("totalCookies").innerHTML = "Total Cookies: " + totalCookies; // Commented out
   updatePrestigePoints();
 }
 
@@ -59,7 +76,7 @@ function autoClicker() {
       score += autoClickValue;
       totalCookies += autoClickValue;
       document.getElementById("score").innerHTML = "Score: " + score;
-      document.getElementById("totalCookies").innerHTML = "Total Cookies: " + totalCookies;
+//      document.getElementById("totalCookies").innerHTML = "Total Cookies: " + totalCookies; // Commented out
       updatePrestigePoints();
     }, 1000);
   } else {
@@ -96,7 +113,7 @@ function restartGame() {
    autoClickValue = prestigePoints * 2 || 1; // Apply boost, minimum is still one
    prestigeThreshold = Math.pow(10, prestigePoints+3); // Reset threshold
    document.getElementById("score").innerHTML = "Score: " + score; 
-   document.getElementById("totalCookies").innerHTML = "Total Cookies: " + totalCookies; 
+//   document.getElementById("totalCookies").innerHTML = "Total Cookies: " + totalCookies; // Commented out
    document.getElementById("clickValue").innerHTML = "Cookies per click: " + clickValue; 
    document.getElementById("autoClickValue").innerHTML = "Cookies per auto click: " + autoClickValue; 
 }
