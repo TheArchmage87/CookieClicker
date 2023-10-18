@@ -1,4 +1,4 @@
-<!<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <body>
 
@@ -6,7 +6,7 @@
 <p>Click the cookie to increase your score!</p>
 
 <button class="game-button" onclick="clickCookie()">
-  <img src="https://w7.pngwing.com/pngs/763/672/png-transparent-cookie-clicker-clicker-heroes-incremental-game-cookie-game-baked-goods-food.png" alt="Cookie" width="150" height="150">
+  <img src="https://lh4.googleusercontent.com/YVw76obzt_xSS1PTEk6vPM-w0XNkZMr9UoDgVxcX2chS5L9lBvGdgHvxclblCHg0jVwkiYNkX3xEz4JoX5kCWz0" alt="Cookie" width="50" height="50">
 </button>
 
 <button class="game-button" onclick="upgradeClick()">Upgrade Click (Cost: 10)</button>
@@ -27,14 +27,13 @@
   padding: 10px;
   color: black; /* Black text */
   background-color: white; /* White background */
+  border: 1px solid black; /* Black border */
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .game-button:hover {
   background-color: #ddd; /* Light grey on hover */
-}
-
-.cookie-button {
-  border: none;
 }
 </style>
 
@@ -114,4 +113,11 @@ function restartGame() {
    autoClickValue = prestigePoints * 2 || 1; // Apply boost, minimum is still one
    prestigeThreshold = Math.pow(10, prestigePoints+3); // Reset threshold
    document.getElementById("score").innerHTML = "Score: " + score; 
-//   document.getElementById("totalCookies").
+//   document.getElementById("totalCookies").innerHTML = "Total Cookies: " + totalCookies; // Commented out
+   document.getElementById("clickValue").innerHTML = "Cookies per click: " + clickValue; 
+   document.getElementById("autoClickValue").innerHTML = "Cookies per auto click: " + autoClickValue; 
+}
+</script>
+
+</body>
+</html>
